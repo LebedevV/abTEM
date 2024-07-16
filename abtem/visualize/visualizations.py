@@ -602,7 +602,7 @@ class Visualization:
                 **kwargs,
             )
 
-            artists.itemset(i, artist)
+            artists[i] = artist
 
         self._artists = artists
 
