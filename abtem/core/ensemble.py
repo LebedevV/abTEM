@@ -24,7 +24,7 @@ def _wrap_with_array(x, ndims: int = None):
         ndims = len(x.ensemble_shape)
 
     wrapped = np.zeros((1,) * ndims, dtype=object)
-    wrapped.itemset(0, x)
+    wrapped[0] = x
     return wrapped
 
 
