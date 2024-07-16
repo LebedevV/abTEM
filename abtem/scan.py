@@ -270,9 +270,7 @@ class CustomScan(BaseScan):
         cumchunks = tuple(np.cumsum(chunks[0]))
         positions = np.empty(len(chunks[0]), dtype=object)
         for i, (start_chunk, chunk) in enumerate(zip((0,) + cumchunks, chunks[0])):
-            positions.itemset(
-                i, {"positions": self._positions[start_chunk : start_chunk + chunk]}
-            )
+            positions[i] = {"positions": self._positions[start_chunk : start_chunk + chunk]}
 
         if lazy:
             positions = da.from_array(positions, chunks=1)
